@@ -7,13 +7,18 @@ import ua.rozborsky.calculationPi.interfaces.PIfounder;
  */
 public class PIfounderThread extends Thread{
     private PIfounder PIfounder;
-    private int size = 200;
+    private String PI;
 
     PIfounderThread(PIfounder PIfounder) {
         this.PIfounder = PIfounder;
     }
 
+    @Override
     public void run() {
-        PIfounder.calculate(size);
+        PI = PIfounder.calculate();
+    }
+
+    public String getPI() {
+        return PI;
     }
 }
