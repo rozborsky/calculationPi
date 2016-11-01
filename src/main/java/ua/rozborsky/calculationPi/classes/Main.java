@@ -11,7 +11,7 @@ public class Main {
         View window = new Window();
         window.createWindow();
 
-        PIfounder pIfounder = new PIfounderSpigotBigDecimal();
+        PIfounder pIfounder = new PIfounderSpigot();
         PIfounderThread PIfounderThread = new PIfounderThread(pIfounder);
         window.setPIfounderThread(PIfounderThread);
     }

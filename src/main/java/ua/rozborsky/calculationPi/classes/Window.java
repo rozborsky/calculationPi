@@ -61,39 +61,18 @@ public class Window implements View{
         return jLabel;
     }
 
-    private String formatPi(String pi) {System.out.println(pi);
-        if (pi.length() != 0){
-            int length = pi.length();
-            int transfers = (int)Math.floor(length/70);
-            StringBuilder transferedPi = new StringBuilder(pi);
-
-            for (int i = 0; i < transfers; i++) {
-                transferedPi.insert((70 * (i + 1)) + 4 * i, "<br>");
-            }
-
-            return "<html>" + transferedPi.toString() + "</html>";
-        }
-        return "cant calculate \u03c0";
-    }
-
     private class ButtonListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
             SwingUtilities.invokeLater(new Runnable() {
 
                 public void run() {
-                    //long start = System.currentTimeMillis();
-
                     pIfounderThread.start();
                     pIfounderThread.run();
-                    String pi = formatPi(pIfounderThread.getPI());
+                    String pi = pIfounderThread.getPI();
 
                     jLabel.setText(pi);
                     jLabel.setVisible(true);
-
-//                    long finish = System.currentTimeMillis();
-//                    long timeConsumedMillis = finish - start;
-//                    System.out.println(timeConsumedMillis / 1000);
                 }
             });
         }
