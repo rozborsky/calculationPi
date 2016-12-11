@@ -12,12 +12,11 @@ import java.awt.event.ActionListener;
  */
 public class Window implements View{
 
-    PIfounderThread pIfounderThread;
     private final Font FONT = new Font("Arial", Font.PLAIN, 20);
     JLabel jLabel;
 
     public void createWindow() {
-        JFrame frame = new JFrame("Calculator \u03c0");
+        JFrame frame = new JFrame("Calculator π");
         setWindowParameters(frame);
 
         JPanel mainPanel = new JPanel();
@@ -34,17 +33,13 @@ public class Window implements View{
         mainPanel.add(jScrollPane);
 
         frame.add(mainPanel);
-    }
-
-    public void setPIfounderThread(PIfounderThread pIfounderThread) {
-        this.pIfounderThread = pIfounderThread;
+        frame.setVisible(true);
     }
 
     private void setWindowParameters(JFrame frame) {
         frame.setSize(600, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
     }
 
     private JButton createButton() {
@@ -67,12 +62,13 @@ public class Window implements View{
             SwingUtilities.invokeLater(new Runnable() {
 
                 public void run() {
-                    pIfounderThread.start();
-                    pIfounderThread.run();
-                    String pi = pIfounderThread.getPI();
+                PIfounderThread pIfounderThread = new PIfounderThread(new PIfounderSpigot());
+                pIfounderThread.start();
+                pIfounderThread.run();
+                String pi = pIfounderThread.getPI();
 
-                    jLabel.setText(pi);
-                    jLabel.setVisible(true);
+                jLabel.setText(pi);
+                jLabel.setVisible(true);
                 }
             });
         }

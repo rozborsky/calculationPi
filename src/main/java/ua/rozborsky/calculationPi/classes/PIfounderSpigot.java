@@ -17,6 +17,7 @@ public class PIfounderSpigot implements PIfounder{
     public String calculate() {
         List PiList = new ArrayList();
         String digit [];
+        String message = "Was calculated 1000000";
         try{
             int[] arr = new int[digits + 1];
             int carry = 0;
@@ -41,9 +42,9 @@ public class PIfounderSpigot implements PIfounder{
             }
 
         } catch (OutOfMemoryError error) {
-            System.out.println("OutOfMemoryError");
+            message = "OutOfMemoryError. Was calculated " + PiList.size();
         } finally {
-            return listToString.format(PiList);
+            return "<html>" + message + " numbers of π " + "<br>" + listToString.format(PiList) + "<html>";
         }
     }
 }

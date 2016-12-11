@@ -1,6 +1,5 @@
 package ua.rozborsky.calculationPi.classes;
 
-import ua.rozborsky.calculationPi.interfaces.PIfounder;
 import ua.rozborsky.calculationPi.interfaces.View;
 
 /**
@@ -10,9 +9,6 @@ public class Main {
     public static void main(String[] args) {
         View window = new Window();
         window.createWindow();
-
-        PIfounder pIfounder = new PIfounderSpigot();
-        PIfounderThread PIfounderThread = new PIfounderThread(pIfounder);
-        window.setPIfounderThread(PIfounderThread);
     }
 }
+//-Xmx9M
