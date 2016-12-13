@@ -13,7 +13,7 @@ public class ListToString {
     StringBuilder PiTMP;
 
     public String format(List PiList) {
-        for (int i = 0; i < PiList.size(); i++) {
+        for (int i = 0; i < PiList.size(); ) {
             PiTMP.append(PiList.remove(i));
         }
         String pi = PiTMP.toString();
@@ -21,10 +21,14 @@ public class ListToString {
         int transfers = (int)Math.floor(length/70);
         StringBuilder transferedPi = new StringBuilder(pi);
 
+        if (transferedPi.length() > 2) {
+            transferedPi.insert(1, '.');
+        }
+
         for (int i = 0; i < transfers; i++) {
             transferedPi.insert((70 * (i + 1)) + 4 * i, "<br>");
         }
 
-        return "<html>" + transferedPi.toString() + "</html>";
+        return transferedPi.toString();
     }
 }

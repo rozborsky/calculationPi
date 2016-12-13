@@ -3,6 +3,7 @@ package ua.rozborsky.calculationPi.classes;
 import ua.rozborsky.calculationPi.interfaces.PIfounder;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ public class PIfounderSpigot implements PIfounder{
     public String calculate() {
         List PiList = new ArrayList();
         String digit [];
-        String message = "Was calculated 1000000";
+        String message = "";
         try{
             int[] arr = new int[digits + 1];
             int carry = 0;
@@ -42,9 +43,9 @@ public class PIfounderSpigot implements PIfounder{
             }
 
         } catch (OutOfMemoryError error) {
-            message = "OutOfMemoryError. Was calculated " + PiList.size();
+            message = "OutOfMemoryError. ";
         } finally {
-            return "<html>" + message + " numbers of π " + "<br>" + listToString.format(PiList) + "<html>";
+            return "<html>" + message + "Was calculated " + PiList.size() + " numbers of π " + "<br>" + listToString.format(PiList) + "<html>";
         }
     }
 }

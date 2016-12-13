@@ -62,13 +62,13 @@ public class Window implements View{
             SwingUtilities.invokeLater(new Runnable() {
 
                 public void run() {
-                PIfounderThread pIfounderThread = new PIfounderThread(new PIfounderSpigot());
-                pIfounderThread.start();
-                pIfounderThread.run();
-                String pi = pIfounderThread.getPI();
+                    PIfounderThread pIfounderThread = new PIfounderThread(new PIfounderSpigot());
+                    pIfounderThread.start();
+                    pIfounderThread.run();
+                    String pi = pIfounderThread.getPI();
 
-                jLabel.setText(pi);
-                jLabel.setVisible(true);
+                    jLabel.setText(pi);
+                    jLabel.setVisible(true);
                 }
             });
         }
